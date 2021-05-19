@@ -8,7 +8,7 @@ urlpatterns = [
     # path('users/', views.UserViewSet.as_view({'get': 'list'})),
     # path(r'^users/(?P<pk>\d+)/$', views.UserViewSet.as_view({'get': 'retrieve'}))
     # JWT login
-    re_path(r'^login/$', obtain_jwt_token)
+    re_path('^login/$', obtain_jwt_token)
 ]
 
 router = DefaultRouter()

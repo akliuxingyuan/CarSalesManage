@@ -12,6 +12,9 @@ class Right(models.Model):
         verbose_name = '权限'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return str(self.id) + ' ' + self.authName
+
 
 class Role(models.Model):
     roleName = models.CharField(max_length=20, verbose_name="角色名称")
@@ -22,6 +25,9 @@ class Role(models.Model):
         db_table = 'roles'
         verbose_name = '用户角色'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.roleName
 
 
 class User(AbstractUser):
@@ -34,3 +40,6 @@ class User(AbstractUser):
         db_table = 'users'
         verbose_name = '用户'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.username

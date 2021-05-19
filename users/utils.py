@@ -4,7 +4,7 @@ def jwt_response_payload_handler(token, user=None, request=None):
     """
     return {
         'id': user.id,
-        'rid': user.rid,
+        'rid': user.rid_id,
         'username': user.username,
         'mobile': user.mobile,
         'email': user.email,

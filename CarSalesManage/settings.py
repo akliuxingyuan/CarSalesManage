@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import datetime
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1jp2vokm52gsyb%f!@)%i^3b%83%*)joa05j62-slp0u7bovku'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -130,18 +131,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [ BASE_DIR / "static" ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 AUTH_USER_MODEL = 'users.User'
 
 # CORS
 CORS_ORIGIN_WHITELIST = (
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
+    'http://127.0.0.1:8002',
+    'http://localhost:8002',
+    'http://localhost:8080',
     'https://car.example.cc:443',
-    'https://api.car.example.cc:8000',
+    'https://api.car.example.cc:443',
 )
 
 CORS_ALLOW_CREDENTIALS = True  # 允许携带cookie
+
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS'
+)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

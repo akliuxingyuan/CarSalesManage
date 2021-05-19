@@ -15,6 +15,9 @@ class Category(models.Model):
         verbose_name = '商品分类'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.cat_name
+
 
 class Factory(models.Model):
     fid = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='工厂ID')
@@ -25,6 +28,9 @@ class Factory(models.Model):
         db_table = 'factory'
         verbose_name = '工厂'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.fname
 
 
 class Car(models.Model):
@@ -41,6 +47,9 @@ class Car(models.Model):
         verbose_name = '汽车'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.cname
+
 
 class CustomerTrade(models.Model):
     ctid = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='订单ID')
@@ -53,6 +62,9 @@ class CustomerTrade(models.Model):
         verbose_name = '客户购买订单'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.ctid
+
 
 class FactoryTrade(models.Model):
     ftid = models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='订单ID')
@@ -63,3 +75,6 @@ class FactoryTrade(models.Model):
         db_table = 'factory_trade_data'
         verbose_name = '工厂购入订单'
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.ftid
