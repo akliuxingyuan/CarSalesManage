@@ -20,5 +20,6 @@ from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
+    path('', include('commodity.urls')),
     path('docs/', include_docs_urls(title='汽车销售管理')),
 ]
